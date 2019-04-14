@@ -1,0 +1,14 @@
+<%= render 'shared/content_title', title: 'All Categories' %>
+
+<ul>
+  <% @categories.each do |category| %>
+    <div class='row'>
+      <li>
+        <%= category.name %> 
+        | <%= link_to 'edit', edit_category_path(category) %> 
+        | <%= link_to 'delete', category_path(category), data: { confirm: 'Are you sure?'}, method: :delete %>
+      </li>
+    </div>
+  <% end %>
+  <%= link_to 'Add Category', new_category_path %>
+</ul>
